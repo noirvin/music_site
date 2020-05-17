@@ -20,6 +20,7 @@ class Song(models.Model):
     artist = models.ForeignKey(Musician, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     album = models.ForeignKey(Album, on_delete=models.CASCADE, null=True)
+    num_stars = models.IntegerField(null=True)
 
     def __str__(self):
         return self.name
