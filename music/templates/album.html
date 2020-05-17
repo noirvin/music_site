@@ -1,0 +1,14 @@
+<div style="margin: 3.5rem 40rem;">
+
+    <h1>{{album.name}}</h1>
+
+    <h4>Date Released: {{album.publish_date}}</h4>
+
+    <h2>Songs:</h2>
+    {% for song in songs  %}
+    <li>
+      <a href="/song/{{ song.id }}">{{ song.name }}</a>
+    </li>
+    {% endfor %}
+
+</div>
