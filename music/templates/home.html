@@ -1,0 +1,12 @@
+<div style="margin: 3.5rem 40rem;">
+
+    <h1>All Musicians</h1>
+
+    <ul>
+      {% for musician in musicians %}
+        <li>
+          <a href="/musician/{{ musician.id }}">{{ musician.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+</div>

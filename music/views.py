@@ -1,7 +1,30 @@
-from django.http import HttpResponse
+from .models import Musician, Album, Song
+from django.shortcuts import render
 
 def home(request):
-    return HttpResponse("Hello, world. This is my music site!")
+    artist_list = {
+    'musicians': Musician.objects.all()
+  }
+    return render(request, 'home.html', artist_list)
 
-def classical_songs(request):
-    return HttpResponse("Hello Classical!")
+
+
+def artist(request):
+    album_list = {
+        'musician': Musician.objects.get(id=musician_id),
+        'albums': Album.objects.filter(id=musician_id),
+  }
+    return render(request, 'home.html', album_list)
+
+def album(request):
+    song_list = {
+        'album': Album.objects.get(id=album_id),
+        'songs': Song.objects.filter(album=album_id)
+
+    }
+    return render(request, 'album.html', song_list)
+def song(request, song_id):
+  one_song = {
+    'song': Song.objects.get(id=song_id),
+  }
+  return render(request, 'song.html', one_song)
